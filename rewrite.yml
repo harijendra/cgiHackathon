@@ -1,0 +1,18 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.remediation.upgrade.HttpClientSecureUpgrade
+displayName: Upgrade Apache HttpClient to Safe Version (4.5.14)
+description: Upgrades org.apache.httpcomponents:httpclient to remediate CVE-2014-3577, CVE-2020-13956, CVE-2015-5262, and CVE-2012-6153.
+recipeList:
+  # Maven dependency upgrade
+  - org.openrewrite.maven.UpgradeDependencyVersion:
+      groupId: org.apache.httpcomponents
+      artifactId: httpclient
+      newVersion: 4.5.14
+      overrideManagedVersion: true
+  
+  # Gradle dependency upgrade
+  - org.openrewrite.gradle.UpgradeDependencyVersion:
+      groupId: org.apache.httpcomponents
+      artifactId: httpclient
+      newVersion: 4.5.14
